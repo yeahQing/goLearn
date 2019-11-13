@@ -3,7 +3,6 @@
 ```go
 
 func main() {
-  
   x := 1
   y := 2
   defer calc("aa",x,calc("a",x,y))
@@ -20,9 +19,9 @@ func main() {
 此外，如果有多个defer修饰的值，则按出栈顺序一次输出。即后调用的defer函数先输出。如果按照java中释放资源的顺序,先使用的后关闭。则用defer表示，应该为：
 ```go
   //此处以jdbc关闭资源为例
-  defer conn.close()
-  defer pstm.close()
-  defer rs.close()
+  defer close(conn)
+  defer close(pstm)
+  defer close(rs)
   /*
     首先结果集先关闭，之后预处理语句的io,最后是释放连接。
   */
