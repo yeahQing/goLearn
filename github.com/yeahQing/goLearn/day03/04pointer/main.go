@@ -31,4 +31,12 @@ func main() {
 	//此处传递的是内存地址
 	modify2(&x)
 	fmt.Println(x)
+
+	//声明一个指针类型的变量
+	var a *int
+	a = new(int) //初始化之后分配内存空间,返回地址
+	*a = 10      //取a的地址赋值
+	fmt.Println(a)
+	fmt.Println(*a)
+
 }
